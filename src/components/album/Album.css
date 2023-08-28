@@ -1,3 +1,11 @@
-h1 {
-  font-weight: 700;
+.album-image {
+  border-radius: 5px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  margin-bottom: 10px;
+  max-width: 200px;
+}
+
+.album-name {
+  font-size: 16px;
+  margin-bottom: 20px;
 }
