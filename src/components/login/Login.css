@@ -1,0 +1,43 @@
+.form-container {
+  align-items: center;
+  background-color: rgba(5, 150, 241, 0.326);
+  display: flex;
+  height: 100vh;
+  justify-content: center;
+}
+
+form {
+  background-color: white;
+  border-radius: 20px;
+  display: flex;
+  flex-direction: column;
+  padding: 20%;
+}
+
+input, button {
+  border: none;
+  border-radius: 100px;
+  margin-top: 3%;
+  padding: 3%;
+  text-align: center;
+}
+
+input {
+  background: none;
+  border: 1px solid rgba(0, 59, 229, 1);
+}
+
+::placeholder {
+  color: rgba(0, 59, 229, 1);
+}
+
+button {
+  background-color: rgba(0, 59, 229, 1);
+  color: white;
+  cursor: pointer;
+  font-weight: 700;
+}
+
+button:disabled {
+  background-color: rgba(0, 57, 229, 0.225);
+}
