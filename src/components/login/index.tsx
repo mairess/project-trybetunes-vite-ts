@@ -37,7 +37,7 @@ function Login() {
   return (
     <div className="form-container">
       <form action="" method="get" encType="multipart/form-data">
-        <img src="./assets/logo.svg" alt="Logo" />
+        <img src="/src/images/logo.svg" alt="Logo" />
         <input
           data-testid="login-name-input"
           type="text"

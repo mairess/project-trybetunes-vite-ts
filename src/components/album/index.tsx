@@ -33,6 +33,7 @@ function Album() {
       <p className="album-name" data-testid="album-name">{album?.collectionName}</p>
       {songs.map((song) => (
         <MusicCard
+          trackId={ song.trackId }
           key={ song.trackId }
           trackName={ song.trackName }
           previewUrl={ song.previewUrl }
