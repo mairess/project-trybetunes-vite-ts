@@ -30,13 +30,12 @@ function MusicCard({ trackName, previewUrl, trackId }: MusicCardProps) {
         data-testid={ `checkbox-music-${trackId}` }
       >
         <img
-          // src={ `/src/images/${isFavorite ? 'empty_' : 'checked_'}heart.png` }
-          // src="/src/images/empty_heart.png"
           src={ `/src/images/${isFavorite ? 'checked_' : 'empty_'}heart.png` }
           alt="favorite"
         />
       </label>
       <input
+        hidden
         id={ favID }
         type="checkbox"
         onChange={ toggleFavorite }
