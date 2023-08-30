@@ -6,10 +6,11 @@ type MusicCardProps = {
   trackName: string,
   previewUrl: string,
   trackId: number,
+  isFav: boolean,
 };
 
-function MusicCard({ trackName, previewUrl, trackId }: MusicCardProps) {
-  const [isFavorite, setIsFavorite] = useState(false);
+function MusicCard({ trackName, previewUrl, trackId, isFav }: MusicCardProps) {
+  const [isFavorite, setIsFavorite] = useState(isFav);
 
   function toggleFavorite() {
     setIsFavorite((prevState) => !prevState);
