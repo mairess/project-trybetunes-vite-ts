@@ -16,9 +16,9 @@ function Album() {
     async function albumMusics() {
       setLoading(true);
       if (id) {
-        const [albumData, ...albunSongs] = await getMusics(id);
+        const [albumData, ...albumSongs] = await getMusics(id);
         setAlbum(albumData);
-        setSongs(albunSongs);
+        setSongs(albumSongs);
         setLoading(false);
       }
     }
