@@ -1,5 +1,6 @@
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 import './MusicCard.css';
+import { addSong, removeSong } from '../../services/favoriteSongsAPI';
 
 type MusicCardProps = {
   trackName: string,
@@ -9,10 +10,21 @@ type MusicCardProps = {
 
 function MusicCard({ trackName, previewUrl, trackId }: MusicCardProps) {
   const [isFavorite, setIsFavorite] = useState(false);
+
   function toggleFavorite() {
     setIsFavorite((prevState) => !prevState);
   }
-  const favID = `favorite-${trackId}`;
+
+  useEffect(() => {
+    async function favoriteStatus() {
+      if (isFavorite) {
+        await addSong({ trackName, previewUrl, trackId });
+      } else {
+        await removeSong({ trackName, previewUrl, trackId });
+      }
+    }
+    favoriteStatus();
+  }, [trackName, previewUrl, trackId, isFavorite]);
 
   return (
     <div className="music-card-container">
@@ -26,7 +38,7 @@ function MusicCard({ trackName, previewUrl, trackId }: MusicCardProps) {
         .
       </audio>
       <label
-        htmlFor={ favID }
+        htmlFor={ `favorite-${trackId}` }
         data-testid={ `checkbox-music-${trackId}` }
       >
         <img
@@ -35,10 +47,10 @@ function MusicCard({ trackName, previewUrl, trackId }: MusicCardProps) {
         />
       </label>
       <input
-        hidden
-        id={ favID }
+        id={ `favorite-${trackId}` }
         type="checkbox"
         onChange={ toggleFavorite }
+        checked={ isFavorite }
       />
     </div>
   );
