@@ -3,7 +3,7 @@ import { useEffect, useState } from 'react';
 import getMusics from '../../services/musicsAPI';
 import { AlbumType, SongType } from '../../types';
 import Loading from '../loading';
-import MusicCard from '../musicCard';
+import MusicCard from '../../components/musicCard';
 import './Album.css';
 import { getFavoriteSongs } from '../../services/favoriteSongsAPI';
 
