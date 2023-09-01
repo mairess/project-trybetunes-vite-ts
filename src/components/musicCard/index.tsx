@@ -1,4 +1,4 @@
-import { useEffect, useState } from 'react';
+import { useState } from 'react';
 import './MusicCard.css';
 import { addSong, removeSong } from '../../services/favoriteSongsAPI';
 
@@ -7,25 +7,26 @@ type MusicCardProps = {
   previewUrl: string,
   trackId: number,
   isFav: boolean,
+  handleRemoveFavorite?: () => void;
 };
 
-function MusicCard({ trackName, previewUrl, trackId, isFav }: MusicCardProps) {
+function MusicCard({
+  trackName,
+  previewUrl,
+  trackId,
+  isFav,
+  handleRemoveFavorite = () => {} }: MusicCardProps) {
   const [isFavorite, setIsFavorite] = useState(isFav);
 
   function toggleFavorite() {
     setIsFavorite((prevState) => !prevState);
-  }
-
-  useEffect(() => {
-    async function favoriteStatus() {
-      if (isFavorite) {
-        await addSong({ trackName, previewUrl, trackId });
-      } else {
-        await removeSong({ trackName, previewUrl, trackId });
-      }
+    if (!isFavorite) {
+      addSong({ trackName, previewUrl, trackId });
+    } else {
+      removeSong({ trackName, previewUrl, trackId });
+      handleRemoveFavorite();
     }
-    favoriteStatus();
-  }, [trackName, previewUrl, trackId, isFavorite]);
+  }
 
   return (
     <div className="music-card-container">
@@ -52,6 +53,7 @@ function MusicCard({ trackName, previewUrl, trackId, isFav }: MusicCardProps) {
         type="checkbox"
         onChange={ toggleFavorite }
         checked={ isFavorite }
+        className="hidden-input"
       />
     </div>
   );

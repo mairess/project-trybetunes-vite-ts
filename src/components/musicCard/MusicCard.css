@@ -9,3 +9,7 @@
 audio {
   width: 100%;
 }
+
+.hidden-input {
+  opacity: 0;
+}
