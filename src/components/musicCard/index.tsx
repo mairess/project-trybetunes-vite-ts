@@ -1,37 +1,31 @@
 import { useState } from 'react';
 import './MusicCard.css';
 import { addSong, removeSong } from '../../services/favoriteSongsAPI';
+import { SongType } from '../../types';
 
 type MusicCardProps = {
-  trackName: string,
-  previewUrl: string,
-  trackId: number,
+  song: SongType
   isFav: boolean,
   handleRemoveFavorite?: () => void;
 };
 
-function MusicCard({
-  trackName,
-  previewUrl,
-  trackId,
-  isFav,
-  handleRemoveFavorite = () => {} }: MusicCardProps) {
+function MusicCard({ song, isFav, handleRemoveFavorite = () => {} }: MusicCardProps) {
   const [isFavorite, setIsFavorite] = useState(isFav);
 
   function toggleFavorite() {
     setIsFavorite((prevState) => !prevState);
     if (!isFavorite) {
-      addSong({ trackName, previewUrl, trackId });
+      addSong(song);
     } else {
-      removeSong({ trackName, previewUrl, trackId });
+      removeSong(song);
       handleRemoveFavorite();
     }
   }
 
   return (
     <div className="music-card-container">
-      <h2>{trackName}</h2>
-      <audio data-testid="audio-component" src={ previewUrl } controls>
+      <h2>{song.trackName}</h2>
+      <audio data-testid="audio-component" src={ song.previewUrl } controls>
         <track kind="captions" />
         O seu navegador não suporta o elemento
         {' '}
@@ -40,8 +34,8 @@ function MusicCard({
         .
       </audio>
       <label
-        htmlFor={ `favorite-${trackId}` }
-        data-testid={ `checkbox-music-${trackId}` }
+        htmlFor={ `favorite-${song.trackId}` }
+        data-testid={ `checkbox-music-${song.trackId}` }
       >
         <img
           src={ `/src/images/${isFavorite ? 'checked_' : 'empty_'}heart.png` }
@@ -49,7 +43,7 @@ function MusicCard({
         />
       </label>
       <input
-        id={ `favorite-${trackId}` }
+        id={ `favorite-${song.trackId}` }
         type="checkbox"
         onChange={ toggleFavorite }
         checked={ isFavorite }

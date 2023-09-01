@@ -37,10 +37,8 @@ function Album() {
       <p className="album-name" data-testid="album-name">{album?.collectionName}</p>
       {songs.map((song) => (
         <MusicCard
-          trackId={ song.trackId }
+          song={ song }
           key={ song.trackId }
-          trackName={ song.trackName }
-          previewUrl={ song.previewUrl }
           isFav={ favoriteSongs
             .some((favorite) => song.trackId === favorite.trackId) }
         />

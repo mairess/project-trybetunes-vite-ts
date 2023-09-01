@@ -31,10 +31,8 @@ function Favorites() {
       { favoriteMusic.map((song) => (
         <MusicCard
           key={ song.trackId }
-          trackName={ song.trackName }
-          previewUrl={ song.previewUrl }
+          song={ song }
           isFav
-          trackId={ song.trackId }
           handleRemoveFavorite={ () => handleRemoveFavorite() }
         />
       ))}
