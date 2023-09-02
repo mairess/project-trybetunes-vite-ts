@@ -38,7 +38,9 @@ function ProfileEdit() {
     setLoading(false);
   }
 
-  const handleChange = (event: React.ChangeEvent<HTMLInputElement>) => {
+  const handleChange = (
+    event: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>,
+  ) => {
     const { name, value } = event.target;
     setUser((prevUser) => ({ ...prevUser, [name]: value }));
   };
@@ -68,13 +70,16 @@ function ProfileEdit() {
       />
 
       <label htmlFor="edit-description">Editar descrição:</label>
-      <input
+      <textarea
         id="edit-description"
         name="description"
         data-testid="edit-input-description"
         onChange={ handleChange }
         value={ user.description }
-      />
+      >
+        Edite aqui
+      </textarea>
+      <input />
 
       <label htmlFor="edit-image">Alterar imagem:</label>
       <input
