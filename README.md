@@ -1,10 +1,12 @@
-# :construction: README em construção ! :construction:
-<!-- Olá, Tryber!
-Esse é apenas um arquivo inicial para o README do seu projeto.
-É essencial que você preencha esse documento por conta própria, ok?
-Não deixe de usar nossas dicas de escrita de README de projetos, e deixe sua criatividade brilhar!
-:warning: IMPORTANTE: você precisa deixar nítido:
-- quais arquivos/pastas foram desenvolvidos por você; 
-- quais arquivos/pastas foram desenvolvidos por outra pessoa estudante;
-- quais arquivos/pastas foram desenvolvidos pela Trybe.
--->
+# <p align="center">Projeto Trybe Tunes</p>
+
+## Contexto
+
+O objetivo aqui foi desenvolver uma aplicação streaming de músicas onde é possível ouvir o preview delas. Nessa aplicação é possível pesquisar e listar álbuns e músicas de vários artistas e bandas, favoritar a musica preferida e ver e editar o perfil da pessoa logada.
+
+## Competências desenvolvidas
+
+- Capacidade de fazer requisições e consumir dados de API.
+- Compreensão e utilização de `Routes` e `Route`.
+- Compreensão e utilização de `useEffect` e `useState`.
+- Compreensão e utilização do `BrowserRouter` corretamente.
