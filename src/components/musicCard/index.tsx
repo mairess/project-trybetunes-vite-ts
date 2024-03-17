@@ -2,6 +2,8 @@ import { useState } from 'react';
 import './MusicCard.css';
 import { addSong, removeSong } from '../../services/favoriteSongsAPI';
 import { SongType } from '../../types';
+import emptyHeart from '../../images/empty_heart.png';
+import checkedHeart from '../../images/checked_heart.png';
 
 type MusicCardProps = {
   song: SongType
@@ -38,7 +40,7 @@ function MusicCard({ song, isFav, handleRemoveFavorite = () => {} }: MusicCardPr
         data-testid={ `checkbox-music-${song.trackId}` }
       >
         <img
-          src={ `/src/images/${isFavorite ? 'checked_' : 'empty_'}heart.png` }
+          src={ isFavorite ? checkedHeart : emptyHeart }
           alt="favorite"
         />
       </label>
