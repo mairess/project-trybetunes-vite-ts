@@ -3,6 +3,7 @@ import './Login.css';
 import { useNavigate } from 'react-router-dom';
 import { createUser } from '../../services/userAPI';
 import Loading from '../loading';
+import logo from '../../images/logo.svg';
 
 function Login() {
   const [inputName, setInputName] = useState<string>('');
@@ -37,7 +38,7 @@ function Login() {
   return (
     <div className="form-container">
       <form action="" method="get" encType="multipart/form-data">
-        <img src="/src/images/logo.svg" alt="Logo" />
+        <img src={ logo } alt="Logo" />
         <input
           data-testid="login-name-input"
           type="text"
