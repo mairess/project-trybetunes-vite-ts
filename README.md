@@ -12,19 +12,19 @@ O objetivo aqui foi desenvolver uma aplicação `streaming` de músicas onde é 
 
 Clone o repositório:
 
-```JSON
+```SHELL
 git clone git@github.com:mairess/project-trybetunes-vite-ts.git
 ```
 
 Instale as dependências:
 
-```JSON
+```SHELL
 npm install
 ```
 
 Inicie o vite server:
 
-```JSON
+```SHELL
 npm run dev
 ```
 
@@ -38,13 +38,13 @@ npm run dev
 
 Clone o repositório:
 
-```JSON
+```SHELL
 git clone git@github.com:mairess/project-trybetunes-vite-ts.git
 ```
 
 Suba o container:
 
-```JSON
+```SHELL
 docker compose up -d
 ```
 
